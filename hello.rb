@@ -25,19 +25,18 @@
     
       puts "編集したいファイル名を入力してください(拡張子抜き)"
       file_name = gets.chomp.to_s #ファイル選択
-        puts "中身表示"
-        puts CSV.read("#{file_name}.csv")
-        puts "_________________________"
-        puts "追記内容を記入してください"
-        puts "完了したらCtrl + Dを押します"
+      puts "中身表示"
+      puts CSV.read("#{file_name}.csv")
+      puts "_________________________"
+      puts "追記内容を記入してください"
+      puts "完了したらCtrl + Dを押します"
         
-        memo_contents = $stdin.read #標準入力-複数行を「文字列」として読み取る。
+      memo_contents = $stdin.read #標準入力-複数行を「文字列」として読み取る。
         
-        CSV.open("#{file_name}.csv", "a") do |memo|
-        memo << [memo_contents]
-        end
- 
-  
+      CSV.open("#{file_name}.csv", "a") do |memo|
+      memo << [memo_contents]
+      end
+        
     else
       puts "1か2を選択してください"
     end
